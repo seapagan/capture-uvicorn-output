@@ -1,18 +1,25 @@
 # Capture Uvicorn Output <!-- omit in toc -->
 
-This repository is a template for a basic Python project using
-[Poetry](https://python-poetry.org/), with assorted Linting and Testing
-libraries installed as standard. It also uses
-[pre-commit](https://pre-commit.com/).
+This is just an example of how to capture the `stdout` and `stderr` output of a
+process and use it in a Python application.
 
-- [Development setup](#development-setup)
-  - [Task Runner](#task-runner)
-  - [Linting](#linting)
-  - [Pre-commit](#pre-commit)
+It uses the [Threading](https://docs.python.org/3/library/threading.html) and
+[Queue](https://docs.python.org/3/library/queue.html) modules to capture the
+output of a [Uvicorn](https://www.uvicorn.org/) server and then use it in the
+main application.
+
+It also shows how to cleanly catch the ctrl-c keystroke and pass that on to the
+`uvicorn` server to allow it to shut down cleanly.
+
+As a uvicorn server, it includes a simple API server based on
+[FastAPI](https://fastapi.tiangolo.com/), though the same technique could be
+used with many other types of processes.
+
+- [Setup](#setup)
 - [License](#license)
 - [Credits](#credits)
 
-## Development setup
+## Setup
 
 Install the dependencies using Poetry:
 
@@ -26,64 +33,18 @@ Then, activate the virtual environment:
 $ poetry shell
 ```
 
-Now, you can start to code the meat of your application.
-
-### Task Runner
-
-The task-runner [Poe the Poet](https://github.com/nat-n/poethepoet) is installed
-as a development dependency which allows us to run simple tasks (similar to npm
-`scripts`).
-
-These are run (from within the virtual environment) using the `poe` command and
-then the script name, for example:
+Now you can run the application:
 
 ```console
-$ poe pre
-```
-
-You can define your own, but there are 7 specific ones provided with the script.
-
-- `pre` : Run `pre-commit run --all-files`
-- `pylint`: Run Pylint on all Python files in the project.
-- `mypy` = Run MyPy type-checker on all Python files in the project.
-- `flake8` = Run Flake8 linter on all Python files in the project.
-- `black` = Run Black code formatter on all Python files in the project.
-- `try` = Run Tryceratops linter on all Python files in the project.
-
-- `lint` = Runs pylint, mypy, flake8 and black in sequence
-
-These are defined in the `pyproject.toml` file in the `[tool.poe.tasks]`
-section. Take a look at this file if you want to add or remove tasks.
-
-### Linting
-
-This project includes [flake8](https://flake8.pycqa.org/en/latest/) (with
-several plugins) for linting and
-[Black](https://black.readthedocs.io/en/stable/) for formatting.
-[Mypy](http://mypy-lang.org/) is installed for type checking.
-[isort](https://pycqa.github.io/isort/),[Pylint](https://pylint.org/) and
-[tyrceratops](https://github.com/guilatrova/tryceratops) are also installed as
-standard.
-
-### Pre-commit
-
-There is a [pre-commit](https://pre-commit.com/) configuration provided to run
-some checks on the code before it is committed.  This is a great tool to help
-keep your code clean.
-
-To install pre-commit, run the following command from inside your venv:
-
-```console
-$ pre-commit install
-pre-commit installed at .git/hooks/pre-commit
+capture-uvicorn-output
 ```
 
 ## License
 
-This project is released under the terms of the  license.
+This project is released under the terms of the MIT license.
 
 ## Credits
 
 The original Python boilerplate for this package was created using
 [Pymaker](https://github.com/seapagan/py-maker) by [Grant
-Ramsay](https://github.com/seapagan)
+Ramsay](https://github.com/seapagan) (me :smile:)
