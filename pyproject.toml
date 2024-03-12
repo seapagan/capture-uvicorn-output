@@ -5,6 +5,7 @@ description = "Example how to capture the output from uvicorn server in Python."
 authors = ["Grant Ramsay <seapagan@gmail.com>"]
 readme = "README.md"
 license = ""
+package-mode = false
 
 packages = [{ include = "capture_uvicorn_output" }]
 repository = "https://github.com/seapagan/capture-uvicorn-output"
@@ -156,14 +157,14 @@ addopts = [
   "--cov-report",
   "term-missing",
   "--cov-report",
-  "html"
+  "html",
 ]
 filterwarnings = []
 mock_use_standalone_module = true
 markers = [
   "unit: Unit tests",
   "integration: Integration tests",
-  "rewrite: Tests need Rewriting", # will be skipped automatically
+  "rewrite: Tests need Rewriting",  # will be skipped automatically
 ]
 
 [tool.coverage.run]
