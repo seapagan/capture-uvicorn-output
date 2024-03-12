@@ -35,6 +35,24 @@ Now you can run the application:
 $ python main.py
 ```
 
+## Code
+
+The important code is in the `main.py` file, in the `__call__` method of the
+App class. This method does the following:
+
+- Set up the `uvicorn` server and start it.
+- Sets up a `Queue` to capture the output.
+- Start a separate thread to fill that queue from the `uvicorn` server's output.
+
+The main thread then reads the output. from the queue and simply prints it for
+now.
+
+The `server.py` file just creates a very simple API server using `FastAPI` with
+one route that returns a simple JSON response on the root
+('<http://localhost:8000/>')
+
+I will write a documentation page to explain this in more detail soon.
+
 ## Example Run
 
 Below is an example of the output from running the application, showing the
