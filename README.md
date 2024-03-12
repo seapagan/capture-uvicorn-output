@@ -9,15 +9,11 @@ output of a [Uvicorn](https://www.uvicorn.org/) server and then use it in the
 main application.
 
 It also shows how to cleanly catch the ctrl-c keystroke and pass that on to the
-`uvicorn` server to allow it to shut down cleanly.
+`uvicorn` server to allow it and the application to shut down cleanly.
 
 As a uvicorn server, it includes a simple API server based on
 [FastAPI](https://fastapi.tiangolo.com/), though the same technique could be
-used with many other types of processes.
-
-- [Setup](#setup)
-- [License](#license)
-- [Credits](#credits)
+used with most other types of processes.
 
 ## Setup
 
@@ -36,7 +32,7 @@ $ poetry shell
 Now you can run the application:
 
 ```console
-capture-uvicorn-output
+$ python capture_output/main.py
 ```
 
 ## License

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "capture-uvicorn-output"
+name = "capture-output"
 version = "0.1.0"
 description = "Example how to capture the output from uvicorn server in Python."
 authors = ["Grant Ramsay <seapagan@gmail.com>"]
@@ -7,7 +7,7 @@ readme = "README.md"
 license = ""
 package-mode = false
 
-packages = [{ include = "capture_uvicorn_output" }]
+packages = [{ include = "capture_output" }]
 repository = "https://github.com/seapagan/capture-uvicorn-output"
 
 [tool.poetry.urls]
@@ -20,11 +20,12 @@ repository = "https://github.com/seapagan/capture-uvicorn-output"
 [tool.poetry.scripts]
 # rename "capture-uvicorn-output" below to change the executable name. You can also
 # add more scripts if your package offers multiple commands.
-capture-uvicorn-output = "capture_uvicorn_output.main:app"
+capture-output = "capture_output.main:app"
 
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
+fastapi = { extras = ["all"], version = "^0.110.0" }
 
 [build-system]
 requires = ["poetry-core"]
