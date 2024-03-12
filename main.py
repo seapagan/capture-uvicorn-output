@@ -33,7 +33,7 @@ class App:
             subproc = subprocess.Popen(
                 [  # noqa: S603
                     self.uvicorn_binary,
-                    "capture_output.server:api",
+                    "server:api",
                     "--reload",
                 ],
                 stdout=subprocess.PIPE,

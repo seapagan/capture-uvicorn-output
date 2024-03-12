@@ -1,4 +1,4 @@
-# Capture Uvicorn Output <!-- omit in toc -->
+# Capture Uvicorn Output
 
 This is just an example of how to capture the `stdout` and `stderr` output of a
 process and use it in a Python application.
@@ -32,7 +32,31 @@ $ poetry shell
 Now you can run the application:
 
 ```console
-$ python capture_output/main.py
+$ python main.py
+```
+
+## Example Run
+
+Below is an example of the output from running the application, showing the
+`ctrl-c` being pressed and the application shutting down cleanly.
+
+```console
+$ python main.py
+INFO:     Will watch for changes in these directories: ['/home/seapagan/code/capture-uvicorn-output']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [167389] using WatchFiles
+INFO:     Started server process [167396]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56914 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46182 - "GET / HTTP/1.1" 200 OK
+INFO:     Ctrl-C pressed, Shutting Down...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [167396]
+INFO:     Stopping reloader process [167389]
+
 ```
 
 ## License
